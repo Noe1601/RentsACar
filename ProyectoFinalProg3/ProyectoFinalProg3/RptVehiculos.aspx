@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <asp:Button ID="Button1" class="btn btn-primary btn-block mt-4 mb-4" runat="server" Text="Buscar vehiculos" />
+            <asp:Button ID="Button1" class="btn btn-primary btn-block mt-4 mb-4" runat="server" Text="Buscar vehiculos" OnClick="Button1_Click" />
             
                 <asp:GridView class="table table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="false">
                     <Columns>

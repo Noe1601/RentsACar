@@ -47,12 +47,12 @@
                                            <%-- <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Ingrese su correo">--%>
-                                            <asp:TextBox ID="TextBox1" class="form-control form-control-user" placeholder="Ingrese su correo" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox1" class="form-control form-control-user" placeholder="Ingrese su NOMBRE DE USUARIO" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                          <%--   <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Ingrese su cedula">--%>
-                                             <asp:TextBox ID="TextBox2" class="form-control form-control-user" placeholder="Ingrese su cedula" runat="server"></asp:TextBox>
+                                             <asp:TextBox ID="TextBox2" class="form-control form-control-user" placeholder="Ingrese su contraseña" runat="server"></asp:TextBox>
                                         </div>
                                       
                                         <asp:Button ID="Button1"  class="btn btn-primary btn-user btn-block" runat="server" Text="Login" OnClick="Button1_Click" />

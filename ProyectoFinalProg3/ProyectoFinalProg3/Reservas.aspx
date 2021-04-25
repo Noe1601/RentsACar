@@ -14,6 +14,31 @@
 
              <h1>Registro <small>Reservas</small></h1>
             <a href="Principal.aspx" class="m-2">Ir a dashboard</a>
+
+            <asp:Label ID="Label5" runat="server" Text="Label">
+                 <div class="alert alert-success m-3" id="alerta1" role="alert">
+              Este vehiculo esta disponible!
+            </div>
+            </asp:Label>
+           
+            <asp:Label ID="Label6" runat="server" Text="Label">
+                <div class="alert alert-danger m-3" id="alerta2"  role="alert">
+              Este vehiculo no esta disponible en estas fechas.
+            </div>
+            </asp:Label>
+             
+            <asp:Label ID="Label7" runat="server" Text="Label">
+                <div class="alert alert-success m-3" id="alerta3" role="alert">
+              Reserva registrada satisfactoriamente!
+            </div>
+            </asp:Label>
+            
+            <asp:Label ID="Label8" runat="server" Text="Label">
+                 <div class="alert alert-danger m-3" id="alerta4" role="alert">
+              No se completo la reserva, intentelo de nuevo.
+            </div>
+            </asp:Label>
+            
             <hr />
 
               <div class="form-group row">
@@ -28,6 +53,10 @@
                 <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
                 <asp:DropDownList ID="DropDownList2" class="form-control" runat="server"></asp:DropDownList>
                 </div>
+
+                        <div class="col">
+                        <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Validar" OnClick="Button2_Click" />
+                        </div>
                 </div>
             </div>
 

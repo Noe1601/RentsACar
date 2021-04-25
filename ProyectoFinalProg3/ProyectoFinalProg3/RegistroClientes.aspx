@@ -13,6 +13,19 @@
         <div class="container">
             <h1>Registro <small>Clientes</small></h1>
             <a href="Principal.aspx" class="m-2">Ir a dashboard</a>
+
+                  <asp:Label ID="Label12" runat="server" Text="Label">
+                 <div class="alert alert-success m-3" id="alerta1" role="alert">
+              Cliente registrado exitosamente!
+            </div>
+            </asp:Label>
+           
+            <asp:Label ID="Label13" runat="server" Text="Label">
+                <div class="alert alert-danger m-3" id="alerta2"  role="alert">
+              No se registo el cliente, intentelo de nuevo.
+            </div>
+            </asp:Label>
+
             <hr />
 
              <div class="form-group row">

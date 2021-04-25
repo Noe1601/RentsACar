@@ -14,7 +14,7 @@ namespace ProyectoFinalProg3
         public void Loguearme(string correo, string cedula)
         {
             conexion.Open();
-            string sql = $"SELECT * FROM CLIENTES WHERE CORREO = {correo} AND CEDULA = {cedula} ";
+            string sql = $"SELECT * FROM USUARIOS WHERE USERNAME = '{correo}' AND PASS = '{cedula}' ";
             comando = new SqlCommand(sql, conexion);
             comando.ExecuteNonQuery();
             conexion.Close();
@@ -118,7 +118,7 @@ namespace ProyectoFinalProg3
         public DataTable ListaVehiculos()
         {
             conexion.Open();
-            string consulta = "SELECT * FROM VEHICULOS WHERE RESERVADO = 'NO'";
+            string consulta = "SELECT * FROM VEHICULOS";
             comando = new SqlCommand(consulta, conexion);
             SqlDataAdapter da = new SqlDataAdapter(comando);
             DataTable dt = new DataTable();
@@ -162,7 +162,35 @@ namespace ProyectoFinalProg3
             conexion.Close();
             return dt;
         }
+
+        public DataTable BuscarPorFecha(string fechainicial,string fechafinal)
+        {
+            conexion.Open();
+            //string consulta = $"SELECT V.MARCA AS 'MARCA',V.MODELO AS 'MODELO',V.ANIO AS 'ANIO',V.COLOR AS 'COLOR',V.PRECIO_DIA AS 'PRECIO',V.PASAJEROS AS 'PASAJEROS',V.CAPACIDAD_CARGA AS 'CAPACIDAD',V.MATRICULA AS 'MATRICULA',V.NO_SEGURO AS 'SEGURO',V.FOTO AS 'FOTO',R.FECHA_INICIO AS 'FECHAINICIO',R.FECHA_FIN AS 'FECHAFIN' FROM VEHICULOS V JOIN RESERVAS R ON (V.MODELO = R.VEHICULO) WHERE R.FECHA_INICIO NOT IN('{fechainicial}') AND R.FECHA_FIN NOT IN('{fechafinal}')";
+            //string consulta = $"SELECT * FROM VEHICULOS V JOIN RESERVAS R ON (V.MODELO = R.VEHICULO) WHERE R.FECHA_INICIO >= '{fechainicial}' OR R.FECHA_FIN <= '{fechafinal}'";
+            string consulta = $"SELECT * FROM VEHICULOS V JOIN RESERVAS R ON (V.MODELO = R.VEHICULO) WHERE R.FECHA_INICIO NOT BETWEEN '{fechainicial}' AND '{fechafinal}' AND R.FECHA_FIN NOT BETWEEN '{fechainicial}' AND '{fechafinal}'";
+            comando = new SqlCommand(consulta, conexion);
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
+        }
+
+        /* VALIDAR DISPONIBLIDAD VEHICULO */
+
+        public void Disponibilidad(string vehiculo, string fecahinicial, string fechafinal)
+        {
+            conexion.Open();
+            //string sql = $"SELECT * FROM RESERVAS R WHERE R.VEHICULO = '{vehiculo}' AND ('{fecahinicial}' BETWEEN R.FECHA_INICIO AND R.FECHA_FIN OR '{fechafinal}' BETWEEN R.FECHA_INICIO AND R.FECHA_FIN)";
+            //string sql = $"SELECT CASE VEHICULO WHEN '{vehiculo}' THEN 1 ELSE 0 END AS Existe FROM RESERVAS R WHERE R.VEHICULO = 'D-MAX' AND('{fecahinicial}' BETWEEN R.FECHA_INICIO AND R.FECHA_FIN OR '{fechafinal}' BETWEEN R.FECHA_INICIO AND R.FECHA_FIN)";
+            string sql = $"SELECT * FROM RESERVAS WHERE VEHICULO = {vehiculo} AND FECHA_INICIO = {fecahinicial} AND FECHA_FIN = {fechafinal}";
+            comando = new SqlCommand(sql, conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+
     }
 
-
+   
 }

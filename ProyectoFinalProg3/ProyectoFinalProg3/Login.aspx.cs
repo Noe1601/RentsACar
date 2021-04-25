@@ -28,10 +28,12 @@ namespace ProyectoFinalProg3
                 cedula = TextBox2.Text;
 
                 data.Loguearme(correo, cedula);
-                Response.Redirect("https://localhost:44371/Principal");
+                Response.Redirect("~/Principal.aspx");
+                //Response.Redirect("https://localhost:44371/Principal");
             }
             catch(Exception ex)
             {
+                //ClientScript.RegisterStartupScript(this.GetType(), "random", "alert('Datos incorrectos')", true);
                 Console.WriteLine(ex.Message);
             }
             

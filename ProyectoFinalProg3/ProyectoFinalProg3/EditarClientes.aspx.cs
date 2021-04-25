@@ -25,8 +25,9 @@ namespace ProyectoFinalProg3
         Datos data = new Datos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label12.Visible = false;
+            Label13.Visible = false;
 
-       
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -94,15 +95,20 @@ namespace ProyectoFinalProg3
                     data.ActualizarCliente(id,cedula, nombre, correo, licencia, nacionalidad, sangre, fotopersonal,
                         fotolicencia);
                     Clear();
+                    Label12.Visible = true;
+                    Label13.Visible = false;
                 }
                 else
                 {
-
+                    Label12.Visible = false;
+                    Label13.Visible = true;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Label12.Visible = false;
+                Label13.Visible = true;
             }
         }
     }

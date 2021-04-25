@@ -38,6 +38,9 @@ namespace ProyectoFinalProg3
                 DropDownList1.Items.Insert(0, new ListItem("Nave espacial"));
                 DropDownList1.Items.Insert(0, new ListItem("Motor"));
             }
+
+            Label12.Visible = false;
+            Label13.Visible = false;
         }
 
         public void Clear()
@@ -132,10 +135,14 @@ namespace ProyectoFinalProg3
                     data.ActualizarVehiculo(id, marca, modelo, anio, color, precio, tipo, capacidad, pasajeros,
                         matricula, seguro, foto, latitud, longitud);
                     Clear();
+                    Label12.Visible = true;
+                    Label13.Visible = false;
                 }
                 else
                 {
                     Console.WriteLine("ERROR");
+                    Label12.Visible = false;
+                    Label13.Visible = true;
                 }
 
 
@@ -143,6 +150,8 @@ namespace ProyectoFinalProg3
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Label12.Visible = false;
+                Label13.Visible = true;
             }
         }
     }

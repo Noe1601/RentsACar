@@ -15,7 +15,8 @@ namespace ProyectoFinalProg3
         int monto;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label12.Visible = false;
+            Label13.Visible = false;
         }
 
         public void Clear()
@@ -35,15 +36,20 @@ namespace ProyectoFinalProg3
 
                     data.RealizarPago(id, monto);
                     Clear();
+                    Label12.Visible = true;
+                    Label13.Visible = false;
                 }
                 else
                 {
-
+                    Label12.Visible = false;
+                    Label13.Visible = true;
                 }
 
             }catch(Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
+                Label12.Visible = false;
+                Label13.Visible = true;
             }
         }
     }
